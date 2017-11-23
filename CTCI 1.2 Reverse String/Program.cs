@@ -27,14 +27,16 @@ namespace CTCI_1._2_Reverse_String
             reverse_manual(ref string1);
             Console.WriteLine("Manual:          " + string1);
 
-            reverse_nullterm(string1.ToCharArray());
+            char[] array1 = string1.ToCharArray();
+            reverse_nullterm(ref array1);
+            Console.WriteLine("Null-terminated: " + new string(array1));
 
             Console.ReadLine();
         }
 
-        private static void reverse_nullterm(char[] passed_array)
+        private static void reverse_nullterm(ref char[] passed_array)
         {
-            Console.WriteLine("null-terminated: " + new string(passed_array.Reverse().ToArray()));
+            passed_array = passed_array.Reverse().ToArray();
         }
 
         private static void reverse_linq(ref string string1)
@@ -60,6 +62,7 @@ namespace CTCI_1._2_Reverse_String
 
             char[] array1 = string1.ToCharArray();
 
+            //reverse in-place to save memory
             while (count_start < count_end)
             {
                 temp_char = string1[count_start];
