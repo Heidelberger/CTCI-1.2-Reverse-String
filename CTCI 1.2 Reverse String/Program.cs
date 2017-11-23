@@ -10,7 +10,18 @@ namespace CTCI_1._2_Reverse_String
     {
         static void Main(string[] args)
         {
-            //test
+            string string1 = "0123456789";
+
+            reverse(ref string1);
+
+            Console.WriteLine(string1);
+
+            Console.ReadLine();
+        }
+
+        private static void reverse(ref string string1)
+        {
+            string1 = "blah.";
         }
     }
 }
